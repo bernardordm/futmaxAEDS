@@ -1,5 +1,3 @@
-package src;
-
 import java.util.Scanner;
 
 /*
@@ -39,7 +37,47 @@ public class Futebol {
     }
 
     private static int maiorTimePossivel(int[] skills) {
-        // Implementar a lógica para calcular o maior time possível
-        throw new UnsupportedOperationException("Não implementado");
+        bubbleSort(skills);
+        
+        int n = skills.length;
+        int maxTeamSize = 1;
+        
+        for (int i = 0; i < n; i++) {
+            int j = i;
+            
+            while (j < n && skills[j] - skills[i] <= 5) {
+                j++;
+            }
+            
+            int currentSize = j - i;
+            
+            if (currentSize > maxTeamSize) {
+                maxTeamSize = currentSize;
+            }
+        }
+        
+        return maxTeamSize;
+    }
+    
+    private static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        boolean swapped;
+        
+        for (int i = 0; i < n - 1; i++) {
+            swapped = false;
+            
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // Troca os elementos
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    swapped = true;
+                }
+            }
+            if (!swapped) {
+                break;
+            }
+        }
     }
 }
