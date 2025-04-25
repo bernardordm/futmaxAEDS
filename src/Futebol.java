@@ -20,17 +20,14 @@ public class Futebol {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
 
-        // Leitura do número de jogadores
         int n = leitor.nextInt();
         int[] skills = new int[n];
         
-        // Leitura das skills
         for (int i = 0; i < n; i++) {
             skills[i] = leitor.nextInt();
         }
         leitor.close();
         
-        // Cálculo do maior time possível
         int maxTeamSize = maiorTimePossivel(skills);
 
         System.out.println(maxTeamSize);
@@ -68,7 +65,6 @@ public class Futebol {
             
             for (int j = 0; j < n - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
-                    // Troca os elementos
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
